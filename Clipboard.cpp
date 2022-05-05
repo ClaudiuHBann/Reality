@@ -2,6 +2,10 @@
 
 std::vector<uint32_t> Clipboard::m_types { CF_TEXT, CF_UNICODETEXT };
 
+Clipboard::Clipboard() {}
+
+Clipboard::~Clipboard() {}
+
 void Clipboard::GetData(uint16_t format, void* dataDestination) {
 	if(GetPriorityClipboardFormat(&m_types[0], (int32_t)m_types.size()) > 0 && OpenClipboard(nullptr)) {
 

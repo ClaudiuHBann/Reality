@@ -7,6 +7,9 @@
 
 class Clipboard {
 public:
+	Clipboard();
+	~Clipboard();
+
 	inline std::string GetDataAsString() {
 		std::string text("");
 		GetData(CF_TEXT, &text);
