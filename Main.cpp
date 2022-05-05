@@ -1,7 +1,9 @@
+#include "Reality.h"
+
 #include <iostream>
 
-int	main() {
-	std::cout << "Reality! :(" << std::endl;
+int	main(int argc, char** argv) {
+	
 
 	return 0;
 }

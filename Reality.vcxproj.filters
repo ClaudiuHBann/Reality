@@ -13,10 +13,87 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Keylogger">
+      <UniqueIdentifier>{a1f1193e-326e-4ed6-9abc-79a9b9d8995d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Keylogger">
+      <UniqueIdentifier>{ff13dd6d-b328-4b18-8d62-b06b08ae7fd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Networking">
+      <UniqueIdentifier>{c04ef4d4-7f53-4711-a58f-4fcbde8ff9e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Networking">
+      <UniqueIdentifier>{e6bdcf1a-4fd9-4464-a42a-821a0521b54f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Bombs">
+      <UniqueIdentifier>{5de89255-5de7-43c9-869b-917cf1776bff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Bombs">
+      <UniqueIdentifier>{e502eaa8-89b6-4c43-a434-0b5cd5f9336e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Miscellaneous">
+      <UniqueIdentifier>{56928f43-df71-4dce-8403-62e25f183f3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Miscellaneous">
+      <UniqueIdentifier>{0dbba1f5-140f-4f01-8213-bdce880454cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Keylogger.cpp">
+      <Filter>Resource Files\Keylogger</Filter>
+    </ClCompile>
+    <ClCompile Include="Clipboard.cpp">
+      <Filter>Resource Files\Keylogger</Filter>
+    </ClCompile>
+    <ClCompile Include="Base.cpp">
+      <Filter>Resource Files\Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="BClient.cpp">
+      <Filter>Resource Files\Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="BSocket.cpp">
+      <Filter>Resource Files\Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="EXEBinder.cpp">
+      <Filter>Resource Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Miscellaneous.cpp">
+      <Filter>Resource Files\Miscellaneous</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Reality.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Clipboard.h">
+      <Filter>Header Files\Keylogger</Filter>
+    </ClInclude>
+    <ClInclude Include="Keylogger.h">
+      <Filter>Header Files\Keylogger</Filter>
+    </ClInclude>
+    <ClInclude Include="Base.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="BClient.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="BSocket.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="CPNL.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="Redefines.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="EXEBinder.h">
+      <Filter>Header Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Miscellaneous.h">
+      <Filter>Header Files\Miscellaneous</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

