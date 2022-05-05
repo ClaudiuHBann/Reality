@@ -4,15 +4,14 @@
 #include "Base.h"
 #include "BSocket.h"
 
-class BClient : public BSocket
-{
+class BClient: public BSocket {
 public:
 	BClient();
 	BClient(BSocket& bSocket);
 	BClient(const int af, const int type, const int protocol, const int family, const unsigned short port, const std::string& serverIP);
 	BClient(const DefaultSocketConfigurations dsc, const unsigned short port, const std::string& serverIP);
 	BClient(const SocketInfo& si);
-	BClient(const BClient &bClient);
+	BClient(const BClient& bClient);
 	virtual ~BClient();
 
 	int Connect();

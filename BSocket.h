@@ -3,8 +3,7 @@
 
 #include "Base.h"
 
-typedef struct socketInfo
-{
+typedef struct socketInfo {
 	sockaddr_in sin;
 	int af;
 	int type;
@@ -12,14 +11,12 @@ typedef struct socketInfo
 	int backlog;
 }SocketInfo;
 
-enum class DefaultSocketConfigurations
-{
+enum class DefaultSocketConfigurations {
 	TCP = 0,
 	UDP
 };
 
-enum class TCPServerDefaultSocketConfiguration
-{
+enum class TCPServerDefaultSocketConfiguration {
 	ADDR = INADDR_ANY,
 	FAMILY = AF_INET,
 	PORT = DEFAULT_PORT,
@@ -29,8 +26,7 @@ enum class TCPServerDefaultSocketConfiguration
 	BACKLOG = SOMAXCONN
 };
 
-enum class UDPServerDefaultSocketConfiguration
-{
+enum class UDPServerDefaultSocketConfiguration {
 	ADDR = INADDR_ANY,
 	FAMILY = AF_INET,
 	PORT = DEFAULT_PORT,
@@ -40,24 +36,21 @@ enum class UDPServerDefaultSocketConfiguration
 	BACKLOG = SOMAXCONN
 };
 
-enum class TCPClientDefaultSocketConfiguration
-{
+enum class TCPClientDefaultSocketConfiguration {
 	FAMILY = AF_INET,
 	PORT = DEFAULT_PORT,
 	AF = AF_INET,
 	TYPE = SOCK_STREAM,
 };
 
-enum class UDPClientDefaultSocketConfiguration
-{
+enum class UDPClientDefaultSocketConfiguration {
 	FAMILY = AF_INET,
 	PORT = DEFAULT_PORT,
 	AF = AF_INET,
 	TYPE = SOCK_DGRAM,
 };
 
-class BSocket
-{
+class BSocket {
 public:
 	BSocket();
 	BSocket(const int af, const int type, const int protocol);
@@ -84,7 +77,7 @@ public:
 
 	bool EvolveToServer(const unsigned long addr, const int family, const unsigned short port, const int backlog);
 	bool EvolveToServer(const DefaultSocketConfigurations dsc, const unsigned short port);
-	bool EvolveToClient(const int family, const unsigned short port, const std::string &serverIP);
+	bool EvolveToClient(const int family, const unsigned short port, const std::string& serverIP);
 	bool EvolveToClient(const DefaultSocketConfigurations dsc, const unsigned short port, const std::string& serverIP);
 
 	bool IsEvolved() const;

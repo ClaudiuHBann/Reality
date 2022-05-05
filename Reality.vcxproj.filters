@@ -25,12 +25,6 @@
     <Filter Include="Resource Files\Networking">
       <UniqueIdentifier>{e6bdcf1a-4fd9-4464-a42a-821a0521b54f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Bombs">
-      <UniqueIdentifier>{5de89255-5de7-43c9-869b-917cf1776bff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Bombs">
-      <UniqueIdentifier>{e502eaa8-89b6-4c43-a434-0b5cd5f9336e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Miscellaneous">
       <UniqueIdentifier>{56928f43-df71-4dce-8403-62e25f183f3e}</UniqueIdentifier>
     </Filter>

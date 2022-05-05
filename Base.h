@@ -41,8 +41,7 @@
 
 #define NULL63(var, err) Base::IsNull(var, err)
 
-enum class ConsoleColors
-{
+enum class ConsoleColors {
 #ifdef WIN32
 	FG_BLUE = 1,
 	FG_GREEN = 2,
@@ -88,16 +87,46 @@ enum class ConsoleColors
 #endif
 };
 
-class Base
-{
+class Base {
 public:
 
-	static void PrintError(const std::string& errorMessage, const unsigned short color = (unsigned short)ConsoleColors::FG_RED
+	static inline void PrintError(const std::string& errorMessage, const unsigned short color = (unsigned short)ConsoleColors::FG_RED
 #ifdef WIN32
-		, HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE)
+								  , HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE)
 #endif
-	);
-	static bool IsNull(const void* variable, const std::string& error);
+	) {
+		if(NULL63(&errorMessage, "std::string& parameter from Base::PrintError function call is null!")) {
+			return;
+		}
+
+#ifdef _WIN32
+
+		/*CONSOLE_SCREEN_BUFFER_INFO csbi;
+		GetConsoleScreenBufferInfo(consoleHandle, &csbi);
+
+		SetConsoleTextAttribute(consoleHandle, color);
+		std::cerr << std::endl << " " << errorMessage << std::endl;
+		SetConsoleTextAttribute(consoleHandle, csbi.wAttributes);*/
+
+#elif defined(__linux__)
+
+		std::cerr << std::endl << " \033[" << color << "m" << errorMessage << " \033[0m" << std::endl;
+
+#endif
+	}
+
+	static inline bool IsNull(const void* variable, const std::string& error) {
+		if(&error == nullptr) {
+			PrintError("std::string& parameter from Base::IsNull function call is null!");
+		}
+
+		if(variable == nullptr) {
+			PrintError(((&error == nullptr) ? "" : error));
+			return true;
+		}
+
+		return false;
+	}
 
 #ifdef WIN32
 

@@ -1,5 +1,11 @@
 #pragma once
 
+#include <objidl.h>
+#include <shlobj.h>
+
+#include <Wincrypt.h>
+
+#include <algorithm>
 #include <fstream>
 #include <string>
 #include <vector>
@@ -9,6 +15,10 @@ class Miscellaneous {
 public:
 	Miscellaneous();
 	~Miscellaneous();
+
+	static void GetFilesInDirectory(const std::string& directory, std::vector<std::string>& files);
+	std::string GetShortcutTarget(const std::string& shortcut);
+	void GetAllShortcutsTargetFromDesktop(std::vector<std::string>& files);
 
 	static inline void FileAsString(const std::string& file, std::string& str, const std::ios_base::openmode iosOM = std::ios::binary) {
 		if(!FileExists(file)) {
@@ -29,4 +39,9 @@ public:
 	}
 
 	static void FindAllOccurrences(const std::string& data, const std::string& query, std::vector<size_t>& occurancesPoss);
+
+	static std::string SHA256(const std::string& text);
+
+private:
+	static bool isCOMInitialized;
 };
