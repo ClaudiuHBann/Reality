@@ -1,4 +1,4 @@
-#include "Miscellaneous.h"
+#include "Miscellaneous.hpp"
 
 bool Miscellaneous::isCOMInitialized = false;
 

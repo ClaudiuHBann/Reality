@@ -33,7 +33,7 @@
 
 #endif
 
-#include "Redefines.h"
+#include "Redefines.hpp"
 
 #define DEFAULT_PORT 27015
 #define DEFAULT_LOCAL_HOST_IP "127.0.0.1"

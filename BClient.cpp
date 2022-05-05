@@ -1,4 +1,4 @@
-#include "BClient.h"
+#include "BClient.hpp"
 
 BClient::BClient() {
 
@@ -125,17 +125,17 @@ int BClient::Disconnect() {
 }
 
 void BClient::OnConnect(const SOCKET socket) {
-	std::cout << "You have been connected to the server!" << std::endl;
+	//std::cout << "You have been connected to the server!" << std::endl;
 }
 
 void BClient::OnSendData(const SOCKET socket) {
-	std::cout << "You have sent data to the server!" << std::endl;
+	//std::cout << "You have sent data to the server!" << std::endl;
 }
 
 void BClient::OnReceiveData(const SOCKET socket) {
-	std::cout << "You have received data from the server!" << std::endl;
+	//std::cout << "You have received data from the server!" << std::endl;
 }
 
 void BClient::OnDisconnect(const SOCKET socket) {
-	std::cout << "You have been disconnected from the server!" << std::endl;
+	//std::cout << "You have been disconnected from the server!" << std::endl;
 }

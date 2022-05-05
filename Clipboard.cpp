@@ -1,4 +1,4 @@
-#include "Clipboard.h"
+#include "Clipboard.hpp"
 
 std::vector<uint32_t> Clipboard::m_types { CF_TEXT, CF_UNICODETEXT };
 

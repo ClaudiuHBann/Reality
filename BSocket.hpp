@@ -1,7 +1,7 @@
 #ifndef _BSOCKET_H
 #define _BSOCKET_H
 
-#include "Base.h"
+#include "Base.hpp"
 
 typedef struct socketInfo {
 	sockaddr_in sin;
@@ -12,7 +12,7 @@ typedef struct socketInfo {
 }SocketInfo;
 
 enum class DefaultSocketConfigurations {
-	TCP = 0,
+	TCP,
 	UDP
 };
 

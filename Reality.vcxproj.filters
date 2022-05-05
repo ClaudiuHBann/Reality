@@ -57,37 +57,43 @@
     <ClCompile Include="Miscellaneous.cpp">
       <Filter>Resource Files\Miscellaneous</Filter>
     </ClCompile>
+    <ClCompile Include="Bomb.cpp">
+      <Filter>Resource Files\Miscellaneous</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Reality.h">
+    <ClInclude Include="Reality.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Clipboard.h">
+    <ClInclude Include="Clipboard.hpp">
       <Filter>Header Files\Keylogger</Filter>
     </ClInclude>
-    <ClInclude Include="Keylogger.h">
+    <ClInclude Include="Keylogger.hpp">
       <Filter>Header Files\Keylogger</Filter>
     </ClInclude>
-    <ClInclude Include="Base.h">
+    <ClInclude Include="Base.hpp">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
-    <ClInclude Include="BClient.h">
+    <ClInclude Include="BClient.hpp">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
-    <ClInclude Include="BSocket.h">
+    <ClInclude Include="BSocket.hpp">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
-    <ClInclude Include="CPNL.h">
+    <ClInclude Include="CPNL.hpp">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
-    <ClInclude Include="Redefines.h">
+    <ClInclude Include="Redefines.hpp">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
-    <ClInclude Include="EXEBinder.h">
+    <ClInclude Include="EXEBinder.hpp">
       <Filter>Header Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="Miscellaneous.h">
+    <ClInclude Include="Miscellaneous.hpp">
       <Filter>Header Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Bomb.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

