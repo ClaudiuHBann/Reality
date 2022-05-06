@@ -42,6 +42,8 @@ public:
 
 	static std::string SHA256(const std::string& text);
 
+	static std::string System(const std::string& command);
+
 private:
 	static bool isCOMInitialized;
 };

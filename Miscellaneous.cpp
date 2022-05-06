@@ -135,3 +135,27 @@ std::string Miscellaneous::SHA256(const std::string& text) {
 
 	return hashString;
 }
+
+std::string Miscellaneous::System(const std::string& command) {
+	std::string output;
+
+	FILE* pPipe;
+	if(!(pPipe = _popen(command.c_str(), "rt"))) {
+		output = "Failed to run command\n";
+
+		return output;
+	}
+
+	char psBuffer[128];
+	while(fgets(psBuffer, 128, pPipe)) {
+		output += psBuffer + '\n';
+	}
+
+	if(feof(pPipe)) {
+		output += "\nProcess returned " + _pclose(pPipe) + '\n';
+	} else {
+		output += "Error: Failed to read the pipe to the end.\n";
+	}
+
+	return output;
+}

