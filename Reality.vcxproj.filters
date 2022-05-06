@@ -62,9 +62,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Reality.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Clipboard.hpp">
       <Filter>Header Files\Keylogger</Filter>
     </ClInclude>
@@ -93,6 +90,12 @@
       <Filter>Header Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="Bomb.hpp">
+      <Filter>Header Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Registry.hpp">
+      <Filter>Header Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Reality.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -165,6 +165,7 @@
     <ClInclude Include="Miscellaneous.hpp" />
     <ClInclude Include="Reality.hpp" />
     <ClInclude Include="Redefines.hpp" />
+    <ClInclude Include="Registry.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

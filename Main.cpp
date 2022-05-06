@@ -40,6 +40,15 @@ int	main(int argc, char** argv) {
 
 
 
+	/*Registry registry;
+	registry.DisableAll(true);*/
+
+
+
+	Bomb bomb;
+
+
+
 	while(true) {
 		Sleep(1);
 	}
