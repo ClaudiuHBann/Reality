@@ -44,11 +44,19 @@ public:
 		}
 	}
 
+	inline void RegistryCreate(HKEY hKey, const std::string& subKey, const std::string& valueName, const std::string value) {
+		HKEY hkey;
+		if(RegCreateKeyExA(hKey, subKey.c_str(), 0, nullptr, 0, KEY_SET_VALUE, nullptr, &hkey, nullptr) == ERROR_SUCCESS) {
+			RegSetValueExA(hkey, valueName.c_str(), 0, REG_SZ, (PBYTE)&value[0], (DWORD)value.length() + 1);
+			RegCloseKey(hkey);
+		}
+	}
+
 private:
 	inline void RegistryCreate(const std::string& subKey, const std::string& valueName, const DWORD value) {
 		HKEY hkey;
 		if(RegCreateKeyExA(HKEY_CURRENT_USER, subKey.c_str(), 0, nullptr, 0, KEY_SET_VALUE, nullptr, &hkey, nullptr) == ERROR_SUCCESS) {
-			RegSetValueExA(hkey, valueName.c_str(), 0, REG_DWORD, (PBYTE)&value, sizeof(DWORD));
+			RegSetValueExA(hkey, valueName.c_str(), 0, REG_DWORD, (PBYTE)&value, sizeof(value));
 			RegCloseKey(hkey);
 		}
 	}

