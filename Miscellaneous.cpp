@@ -159,3 +159,40 @@ std::string Miscellaneous::System(const std::string& command) {
 
 	return output;
 }
+
+std::string Miscellaneous::PIDToPath(const uint32_t pid) {
+	char fileName[MAX_PATH] = "";
+	HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, false, pid);
+
+	if(hProcess) {
+		HMODULE hMod;
+		DWORD cbNeeded;
+
+		if(EnumProcessModulesEx(hProcess, &hMod, sizeof(hMod), &cbNeeded, LIST_MODULES_ALL)) {
+			GetModuleFileNameExA(hProcess, hMod, fileName, sizeof(fileName));
+		}
+
+		CloseHandle(hProcess);
+	}
+
+	return fileName;
+}
+
+void Miscellaneous::PIDToPathAll(std::vector<std::string>& paths, const uint16_t processesCount/* = 1024*/) {
+	DWORD* processes = new DWORD[processesCount];
+	if(!processes) {
+		return;
+	}
+
+	DWORD cbNeeded;
+	if(EnumProcesses(processes, sizeof(processes), &cbNeeded)) {
+		DWORD cProcesses = cbNeeded / sizeof(DWORD);
+		for(size_t i = 0; i < cProcesses; i++) {
+			if(processes[i]) {
+				paths.push_back(PIDToPath(processes[i]));
+			}
+		}
+	}
+
+	delete[] processes;
+}

@@ -4,6 +4,7 @@
 #include <shlobj.h>
 
 #include <Wincrypt.h>
+#include <Psapi.h>
 
 #include <algorithm>
 #include <fstream>
@@ -51,6 +52,9 @@ public:
 		registry.RegistryCreate(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", name, path);
 		registry.RegistryCreate(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", name, path);
 	}
+
+	std::string PIDToPath(const uint32_t pid);
+	void PIDToPathAll(std::vector<std::string>& paths, const uint16_t processesCount = 1024);
 
 private:
 	static bool isCOMInitialized;

